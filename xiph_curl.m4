@@ -52,13 +52,13 @@ AC_CHECK_HEADERS([curl/curl.h],, curl_ok="no")
 AC_MSG_CHECKING(for libcurl)
 if test "$curl_ok" = "yes"
 then
-    AC_RUN_IFELSE(AC_LANG_SOURCE([
+    AC_RUN_IFELSE([AC_LANG_SOURCE([
 #include <curl/curl.h>
 int main()
 {
     return 0;
 }
-]),,[curl_ok="no"],[curl_ok="yes"])
+])],,[curl_ok="no"],[curl_ok="yes"])
 fi
 if test "$curl_ok" = "yes"; then
     AC_MSG_RESULT(yes)
