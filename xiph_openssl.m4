@@ -30,6 +30,7 @@ else
 fi
 
 # Now try linking to openssl
+if test x$with_openssl != xno; then
 xt_save_CFLAGS="$CFLAGS"
 xt_save_LIBS="$LIBS"
 CFLAGS="$CFLAGS $OPENSSL_CFLAGS"
@@ -39,6 +40,7 @@ AC_TRY_LINK([#include <openssl/ssl.h>], [void *a = SSL_new], [openssl_ok='yes'])
 AC_MSG_RESULT([$openssl_ok])
 CFLAGS="$xt_save_CFLAGS"
 LIBS="$xt_save_LIBS"
+fi
 
 if test "$openssl_ok" = "yes"; then
     AC_DEFINE(HAVE_OPENSSL, 1, [Define if you have libopenssl.])
