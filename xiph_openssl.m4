@@ -34,7 +34,9 @@ xt_save_CFLAGS="$CFLAGS"
 xt_save_LIBS="$LIBS"
 CFLAGS="$CFLAGS $OPENSSL_CFLAGS"
 LIBS="$OPENSSL_LIBS $LIBS"
+AC_MSG_CHECKING([for openssl])
 AC_TRY_LINK([#include <openssl/ssl.h>], [void *a = SSL_new], [openssl_ok='yes'])
+AC_MSG_RESULT([$openssl_ok])
 CFLAGS="$xt_save_CFLAGS"
 LIBS="$xt_save_LIBS"
 
